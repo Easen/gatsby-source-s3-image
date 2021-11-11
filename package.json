@@ -1,13 +1,13 @@
 {
-  "name": "@easen/gatsby-source-s3-image",
+  "name": "@marceasen/gatsby-source-s3-image",
   "description": "GatsbyJS plugin to source images from S3-compliant APIs, with EXIF-extracting superpowers.",
-  "version": "1.6.221",
+  "version": "0.0.0-development",
   "contributors": [
     "Jesse Stuart <hi@jessestuart.com>",
     "Marc Easen <marc@easen.co.uk>"
   ],
   "dependencies": {
-    "aws-sdk": "2.1024.0",
+    "aws-sdk": "2.1026.0",
     "fracty": "1.0.9",
     "invariant": "2.2.4",
     "lodash": "4.17.21",
@@ -42,28 +42,28 @@
     "eslint-config-standard": "16.0.3",
     "eslint-friendly-formatter": "4.0.1",
     "eslint-loader": "3.0.4",
-    "eslint-plugin-import": "2.25.2",
+    "eslint-plugin-import": "2.25.3",
     "eslint-plugin-node": "11.1.0",
     "eslint-plugin-prettier": "4.0.0",
     "eslint-plugin-promise": "5.1.1",
-    "eslint-plugin-react": "7.26.1",
+    "eslint-plugin-react": "7.27.0",
     "eslint-plugin-standard": "4.1.0",
     "factory.ts": "0.5.2",
-    "gatsby": "4.1.2",
-    "gatsby-source-filesystem": "4.1.0",
+    "gatsby": "4.1.3",
+    "gatsby-source-filesystem": "4.1.1",
     "jest": "27.3.1",
     "jest-junit": "13.0.0",
     "json-stringify-pretty-compact": "3.0.0",
     "mitm": "1.7.2",
-    "nodemon": "2.0.14",
+    "nodemon": "2.0.15",
     "npm-check-updates": "^12.0.2",
     "prettier": "2.4.1",
     "prettier-eslint": "13.0.0",
-    "react": "17.0.1",
-    "react-dom": "17.0.1",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
     "redux": "4.1.2",
     "redux-mock-store": "1.5.4",
-    "semantic-release": "18.0.0",
+    "semantic-release": "^18.0.0",
     "ts-jest": "27.0.7",
     "typescript": "4.4.4"
   },
@@ -87,7 +87,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/easen/gatsby-source-s3-image"
+    "url": "https://github.com/easen/gatsby-source-s3-image"
   },
   "scripts": {
     "build": "babel --extensions '.ts' src/ --out-dir .",
@@ -98,8 +98,10 @@
     "test": "concurrently 'yarn check-types' 'yarn jest --coverage'",
     "test:watch": "concurrently 'yarn tsc --watch' 'yarn jest --watch'",
     "ts:defs": "tsc --declaration --emitDeclarationOnly",
-    "update": "ncu -u && yarn -s",
-    "watch": "yarn build -w"
+    "update:major": "ncu -u --target minor && yarn -s",
+    "update:minor": "ncu -u --target minor && yarn -s",
+    "watch": "yarn build -w",
+    "semantic-release": "semantic-release"
   },
   "types": "./types/index.d.ts"
 }
