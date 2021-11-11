@@ -14,7 +14,7 @@
 
 ## What is this?
 
-This is a fork of Jesse Stuart amazing [gatsby-source-s3-image][[github orig]],
+This is a fork of Jesse Stuart amazing [gatsby-source-s3-image][github orig],
 updated for [GatsbyJS][github] v4.
 
 `gatsby-source-s3-image` is a [GatsbyJS][github] _Source_ plugin for
