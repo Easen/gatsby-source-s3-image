@@ -44,7 +44,9 @@ with this package:
 Currently supported EXIF fields that are automatically extracted when available
 include:
 
+- `DateCreated` (`date`)
 - `DateCreatedISO` (`string`)
+- `DateTime` (`date`)
 - `DateTimeOriginal` (`number`)
 - `ExposureTime` (`number`)
 - `FNumber` (`number`)
@@ -53,6 +55,7 @@ include:
 - `LensModel` (`string`)
 - `Model` (`string`)
 - `ShutterSpeedValue` (`number`)
+- `UserComment` (`string`)
 
 These fields are properties of the "wrapper" node, `S3ImageAsset`. This type
 composes the `ImageSharp` node, the `File` node representing the cached image on
