@@ -23,6 +23,8 @@ const exifTags = [
   'Model',
   'ShutterSpeedValue',
   'UserComment',
+  'Rating',
+  'RatingPercent',
 ]
 
 const resolveExifData = _.memoize(
