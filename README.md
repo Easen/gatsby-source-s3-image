@@ -4,14 +4,18 @@
   </a>
 </p>
 <h1 align="center">
-  gatsby-source-s3-image
+  @marceasen/gatsby-source-s3-image
 </h1>
 
-[![CircleCI][circleci-badge]][circleci-link] [![npm][npm-badge]][npm-link]
-[![Maintainability][codeclimate]][codeclimate 2]
-[![codecov][codecov]][codecov 2]
+[![npm][gh-action-badge]][gh-action]
+[![npm][npm-badge]][npm-link]
+[![Maintainability][codeclimate-maintainability-badge]][codeclimate-maintainability]
+[![Test Coverage][codeclimate-coverage-badge]][codeclimate-coverage]
 
 ## What is this?
+
+This is a fork of Jesse Stuart amazing [gatsby-source-s3-image][[github orig]],
+updated for [GatsbyJS][github] v4.
 
 `gatsby-source-s3-image` is a [GatsbyJS][github] _Source_ plugin for
 **converting images from any S3-compliant API[1] into GatsbyJS nodes**.
@@ -104,9 +108,9 @@ export const pageQuery = graphql`
 Add the dependency to your `package.json`:
 
 ```console
-$ yarn add gatsby-source-s3-image
+$ yarn add @marceasen/gatsby-source-s3-image
 $ # Or:
-$ npm install --save gatsby-source-s3-image
+$ npm install --save @marceasen/gatsby-source-s3-image
 ```
 
 Next, register the plugin with the GatsbyJS runtime in the `plugins` field
@@ -117,7 +121,7 @@ wherever your bucket is hosted:
 const sourceS3 = {
   resolve: 'gatsby-source-s3-image',
   options: {
-    bucketName: 'jesse.pics',
+    bucketName: 'easen.pics',
     domain: null, // [optional] Not necessary to define for AWS S3; defaults to `s3.amazonaws.com`
     protocol: 'https', // [optional] Default to `https`.
   },
@@ -218,23 +222,14 @@ const createPages = ({ actions }) => {
 }
 ```
 
-## _Nota Bene:_ Gatsby Version Compatibility
-
-`gatsby-source-s3-image` was recently [updated][github 2] to support Gatsby V2,
-which required some breaking changes. The Gatsby V1-compatible version of the
-plugin is still fully functional, and will continue to receive maintenance
-updates as necessary. The last release compatible with Gatsby V1 can be found
-[here][github 3].
-
-[circleci-badge]: https://circleci.com/gh/jessestuart/gatsby-source-s3-image.svg?style=shield
-[circleci-link]: https://circleci.com/gh/jessestuart/gatsby-source-s3-image
-[codeclimate]: https://api.codeclimate.com/v1/badges/4488634e45e84d3cbdbe/maintainability
-[codeclimate 2]: https://codeclimate.com/github/jessestuart/gatsby-source-s3-image/maintainability
-[codecov]: https://codecov.io/gh/jessestuart/gatsby-source-s3-image/branch/master/graph/badge.svg
-[codecov 2]: https://codecov.io/gh/jessestuart/gatsby-source-s3-image
+[codeclimate-maintainability-badge]: https://api.codeclimate.com/v1/badges/80a88a48f7c1d32adbed/maintainability
+[codeclimate-maintainability]: https://codeclimate.com/github/Easen/gatsby-source-s3-image/maintainability
+[codeclimate-coverage-badge]: https://api.codeclimate.com/v1/badges/80a88a48f7c1d32adbed/test_coverage
+[codeclimate-coverage]: https://codeclimate.com/github/Easen/gatsby-source-s3-image/test_coverage
 [github]: https://github.com/gatsbyjs/gatsby
-[github 2]: https://github.com/jessestuart/gatsby-source-s3-image/pull/238
-[github 3]: https://github.com/jessestuart/gatsby-source-s3-image/releases/tag/v0.2.133
+[github orig]: https://github.com/jessestuart/gatsby-source-s3-image/pull/418
 [min]: https://min.io
-[npm-badge]: https://img.shields.io/npm/v/gatsby-source-s3-image.svg
-[npm-link]: https://www.npmjs.com/package/gatsby-source-s3-image
+[npm-badge]: https://img.shields.io/npm/v/@marceasen/gatsby-source-s3-image.svg
+[npm-link]: https://www.npmjs.com/package/@marceasen/gatsby-source-s3-image
+[gh-action-badge]: https://github.com/easen/gatsby-source-s3-image/actions/workflows/test/badge.svg
+[gh-action]: https://github.com/easen/gatsby-source-s3-image/actions/workflows/test/
