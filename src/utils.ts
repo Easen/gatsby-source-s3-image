@@ -81,7 +81,7 @@ export const constructS3UrlForAsset = ({
 }: {
   bucketName: string
   domain: string
-  s3?: S3
+  s3: S3
   key: string
   protocol?: string
   expirySeconds?: number
@@ -100,7 +100,7 @@ export const constructS3UrlForAsset = ({
     const url = s3.getSignedUrl('getObject', {
       Bucket: bucketName,
       Key: key,
-      Expires: expirySeconds
+      Expires: expirySeconds,
     })
     return url
   } else {

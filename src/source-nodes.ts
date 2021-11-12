@@ -39,7 +39,6 @@ export const sourceNodes = async (
     bucketName,
     // ================
     domain = 's3.amazonaws.com',
-    region = 'us-east-1',
     protocol = 'http',
     expirySeconds = 60 * 5,
   }: SourceS3Options
