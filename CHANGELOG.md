@@ -1,3 +1,10 @@
+## [1.2.1](https://github.com/easen/gatsby-source-s3-image/compare/v1.2.0...v1.2.1) (2021-11-12)
+
+
+### Bug Fixes
+
+* audit ([#7](https://github.com/easen/gatsby-source-s3-image/issues/7)) ([daf8469](https://github.com/easen/gatsby-source-s3-image/commit/daf846933af2002a2c9f65615c2f130c257571b5))
+
 # [1.2.0](https://github.com/easen/gatsby-source-s3-image/compare/v1.1.0...v1.2.0) (2021-11-12)
 
 
