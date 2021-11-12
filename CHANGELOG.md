@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/easen/gatsby-source-s3-image/compare/v1.1.0...v1.2.0) (2021-11-12)
+
+
+### Features
+
+* private bucket urls ([#9](https://github.com/easen/gatsby-source-s3-image/issues/9)) ([58fcc27](https://github.com/easen/gatsby-source-s3-image/commit/58fcc2765978be46c584614725f4de336ed6d2ae))
+
 # [1.1.0](https://github.com/easen/gatsby-source-s3-image/compare/v1.0.2...v1.1.0) (2021-11-12)
 
 
