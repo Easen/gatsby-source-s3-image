@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/easen/gatsby-source-s3-image/compare/v1.0.2...v1.1.0) (2021-11-12)
+
+
+### Features
+
+* expose rating and ratingpercent exif tags ([ab3f496](https://github.com/easen/gatsby-source-s3-image/commit/ab3f4962ca2fd8f10b27905a0cc54b067743ef81))
+
 ## [1.0.2](https://github.com/easen/gatsby-source-s3-image/compare/v1.0.1...v1.0.2) (2021-11-11)
 
 
