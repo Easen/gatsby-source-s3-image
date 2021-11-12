@@ -12,9 +12,11 @@ import fixtures from './fixtures.json'
 const FileSystemNodeMock = Factory.Sync.makeFactory<FileSystemNode>({})
 
 const ListObjectsMock = jest.fn()
+const GetSignedUrlMock = jest.fn()
 jest.mock('aws-sdk', () => ({
   S3: class {
     public listObjectsV2 = ListObjectsMock
+    public getSignedUrl = GetSignedUrlMock
   },
 }))
 
@@ -50,11 +52,17 @@ describe('Source S3ImageAsset nodes.', () => {
   beforeEach(() => {
     sourceNodeArgs.store = configureMockStore()
     ListObjectsMock.mockReset()
+    GetSignedUrlMock.mockImplementation(
+      (_cmd: string, options: Record<string, unknown>) =>
+        `https://example.com/${options.Bucket}/${options.Key}?expires=${options.Expires}`
+    )
     // Mock out Gatby's source-filesystem API.
     sourceFilesystem.createRemoteFileNode = jest
       .fn()
       .mockReturnValue(FileSystemNodeMock.build())
   })
+
+  afterAll(() => jest.restoreAllMocks())
 
   test('Verify sourceNodes creates the correct # of nodes, given our fixtures.', async () => {
     ListObjectsMock.mockReturnValueOnce({
