@@ -27,6 +27,7 @@ export interface SourceS3Options {
   region?: string
   // Defaults to HTTP.
   protocol?: string
+  expirySeconds?: number
 }
 
 export const sourceNodes = async (
@@ -38,8 +39,8 @@ export const sourceNodes = async (
     bucketName,
     // ================
     domain = 's3.amazonaws.com',
-    region = 'us-east-1',
     protocol = 'http',
+    expirySeconds = 60 * 5,
   }: SourceS3Options
 ) => {
   const { createNode, touchNode } = actions
@@ -87,8 +88,9 @@ export const sourceNodes = async (
           bucketName,
           domain,
           key,
-          region,
+          s3,
           protocol,
+          expirySeconds,
         })
         if (!url) {
           return

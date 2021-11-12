@@ -2,10 +2,23 @@ import { FileSystemNode } from 'gatsby-source-filesystem'
 import * as Factory from 'factory.ts'
 
 import { constructS3UrlForAsset, getEntityNodeFields, isImage } from '../utils'
+import { S3 } from 'aws-sdk'
 
 const FileSystemNodeMock = Factory.Sync.makeFactory<FileSystemNode>({})
 
+const GetSignedUrlMock = jest.fn()
+jest.mock('aws-sdk', () => ({
+  S3: class {
+    public getSignedUrl = GetSignedUrlMock
+  },
+}))
+
 describe('utils', () => {
+  beforeEach(() => {
+    jest.resetAllMocks()
+  })
+  afterAll(() => jest.restoreAllMocks())
+
   test('isImage', () => {
     const imageEntity = { Key: 'foo.jpg' }
     expect(isImage(imageEntity)).toBeTruthy()
@@ -15,15 +28,20 @@ describe('utils', () => {
   })
 
   test('constructS3UrlForAsset: AWS', () => {
+    GetSignedUrlMock.mockImplementation(
+      (_cmd: string, options: Record<string, unknown>) =>
+        `https://example.com/${options.Bucket}/${options.Key}?expires=${options.Expires}`
+    )
     const s3Url: string = constructS3UrlForAsset({
       bucketName: 'jesse.pics',
       domain: 's3.amazonaws.com',
-      region: 'us-east-1',
       key: 'my_image.jpg',
+      s3: new S3({}),
     })
     expect(s3Url).toBe(
-      'https://jesse.pics.s3.us-east-1.amazonaws.com/my_image.jpg'
+      'https://example.com/jesse.pics/my_image.jpg?expires=300'
     )
+    expect(GetSignedUrlMock).toBeCalledTimes(1)
   })
 
   test('constructS3UrlForAsset: third-party implementation', () => {
