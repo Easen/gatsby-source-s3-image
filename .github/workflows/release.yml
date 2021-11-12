@@ -31,7 +31,7 @@ jobs:
         with:
           coverageLocations: |
             ${{github.workspace}}/coverage/lcov.info:lcov
-
+        
       - name: Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
